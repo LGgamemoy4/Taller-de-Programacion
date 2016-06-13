@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Juego</title>
+	<script>
+var arquero={nombre:"arquero",ataque: 150,vida: 590,VelocidadDeAtaque: 90,velocidad: 60}
+var caballero={nombre:"caballero",ataque: 300,vida: 411,VelocidadDeAtaque: 30,velocidad: 50}
+var batalla=0
+
+function versus (jugador1,jugador2) {
+while (jugador1.vida<0 || jugador2.vida<0){
+
+	if (batalla > 1){
+		aleatorio=Math.floor((Math.random() * 10) + 1);
+	if (aleatorio = 7){
+		jugador1.ataque -= 80;
+}
+}
+if (jugador1.VelocidadDeAtaque>jugador2.VelocidadDeAtaque){
+	jugador2.vida= jugador2.vida - jugador1.ataque;
+}
+else {
+	jugador1.vida= jugador1.vida  - jugador2.ataque;
+}
+batalla ++;
+
+console.log("batalla número"+batalla, "vida jugador1"+jugador1.vida, "vida jugador2"+jugador2.vida)
+}
+}
+versus (arquero,caballero);
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
