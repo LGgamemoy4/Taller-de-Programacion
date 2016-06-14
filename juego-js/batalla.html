@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Batalla</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	* {
+		font-family: 'Montserrat'
+	}
+	h1 {
+		margin: 50px 0;
+		font-family: 'Montserrat';
+		text-align: center;
+	}
+	.card {
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	ul {
+		list-style: none;
+	}
+	li {
+		text-align: left;
+		margin: 5px;
+	}
+	.card input {
+		float: right;
+	}
+	#duracion {
+		position: relative;
+		width: 80%;
+		margin: 10px 10%;
+	}
+	button {
+		margin: 0 40%;
+		width: 20%
+	}
+	</style>
+</head>
+<body>
+	<h1>Pruebas en js para lógica de juego</h1>
+	<header class="container-fluid">
+		<div class="col-md-6 card">
+			<h3>Personaje 1</h3>
+			<ul>	
+				<li><label for="nombre">Nombre</label><input class="form-control" id="uno.nombre" type="text"></li>
+				<li><label for="vida">Vida</label><input class="form-control" id="uno.vida" type="number"></li>
+				<li><label for="fda">Fuerza de ataque</label><input class="form-control" id="uno.fda" type="number"></li>
+				<li><label for="arm">Armadura</label><input class="form-control" id="uno.arm" type="number"></li>
+				<li><label for="va">Velocidad de Ataque</label><input class="form-control" id="uno.va" type="number"></li>
+				<li><label for="vm">Velocidad de Movimiento</label><input class="form-control" id="uno.vm" type="number"></li>
+			</ul>
+		</div>
+		<div class="col-md-6 card">
+			<h3>Personaje 2</h3>
+			<ul>	
+				<li><label for="nombre">Nombre</label><input class="form-control" id="dos.nombre" type="text"></li>
+				<li><label for="vida">Vida</label><input class="form-control" id="dos.vida" type="number"></li>
+				<li><label for="fda">Fuerza de ataque</label><input class="form-control" id="dos.fda" type="number"></li>
+				<li><label for="arm">Armadura</label><input class="form-control" id="dos.arm" type="number"></li>
+				<li><label for="va">Velocidad de Ataque</label><input class="form-control" id="dos.va" type="number"></li>
+				<li><label for="vm">Velocidad de Movimiento</label><input class="form-control" id="dos.vm" type="number"></li>
+			</ul>
+		</div>
+		<input placeholder="Duracion de la batalla..." type="number" class="form-control" id="duracion">
+		<button type="button" id="pelear" class="btn btn-success">Pelear</button>
+	</header>
+	<script type="text/javascript">
+		/* Agregar logica del juego...
+		ataque1 = velocidad_de_ataque*segundos*ataque
+		
+		vida2 = vida2+armadura2-ataque1
+
+		if vida2 < 0
+			nombre2 murio
+
+		hacer lo mimso con el otro jugador*/
+	</script>
+</body>
+</html>
