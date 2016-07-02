@@ -1,0 +1,100 @@
+<!doctype html> 
+<html lang="es"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Juego</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('fondo', 'assets/fondo2.jpg');
+    game.load.spritesheet('pelado', 'assets/pelado.png', 51, 72, 32);
+
+}
+
+var player;
+var cursors;
+
+function create() {
+
+    //  Usamos physics para la física del juego
+    //game.physics.startSystem(Phaser.Physics.ARCADE);
+ 
+    //pelado.enableBody = true;
+
+    platforms = game.add.group();
+
+    player = game.add.sprite(32, game.world.height - 150, 'pelado');
+    console.log(player)
+    game.physics.arcade.enable(player);
+
+    player.body.bounce.y = 0.10;
+    player.body.gravity.y = 0;
+    player.body.collideWorldBounds = true;
+
+    //  El fondo de pantalla
+    game.add.sprite(0, 0, 'fondo');
+
+    // La creación del pelado
+    player = game.add.sprite(32, game.world.height - 150, 'pelado');
+
+    //  Nuestras animaciones caminando a la derecha y a la izquierda.
+    player.animations.add('left', [8, 9, 10, 12, 13, 14, 15], 8, true);
+    player.animations.add('right', [16, 17, 18, 19, 20, 21, 22, 23], 8, true);
+    player.animations.add('up', [24, 25, 26, 27, 28, 29, 30, 31], 8, true);
+    player.animations.add('down', [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+
+    //  Nuestros controles.
+    cursors = game.input.keyboard.createCursorKeys();
+    
+}
+
+function update() {
+
+    //  Setear la velocidad del personaje
+    player.body.velocity.x = 0;
+
+    if (cursors.left.isDown)
+    {
+        //  Moverse a la izquierda
+        player.body.velocity.x = -150;
+
+        player.animations.play('left');
+    }
+    else if (cursors.right.isDown)
+    {
+        //  Moverse a la derecha
+        player.body.velocity.x = 150;
+
+        player.animations.play('right');
+    }
+    else if (cursors.up.isDown){
+        player.animations.play('up');
+
+        player.body.velocity.y = 40;
+    }
+    else
+    {
+        //  Stand still
+        player.animations.stop();
+
+        player.frame = 4;
+    }
+    
+}
+
+</script>
+
+</body>
+</html>
