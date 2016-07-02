@@ -1,9 +1,9 @@
 <!doctype html> 
 <html lang="es"> 
 <head> 
-	<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <title>Juego</title>
-	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -29,25 +29,23 @@ var cursors;
 function create() {
 
     //  Usamos physics para la física del juego
-    //game.physics.startSystem(Phaser.Physics.ARCADE);
- 
-    //pelado.enableBody = true;
-
-    platforms = game.add.group();
-
-    player = game.add.sprite(32, game.world.height - 150, 'pelado');
-    console.log(player)
-    game.physics.arcade.enable(player);
-
-    player.body.bounce.y = 0.10;
-    player.body.gravity.y = 0;
-    player.body.collideWorldBounds = true;
+    game.physics.startSystem(Phaser.Physics.ARCADE);
 
     //  El fondo de pantalla
     game.add.sprite(0, 0, 'fondo');
 
-    // La creación del pelado
+    //agregamos sprite
     player = game.add.sprite(32, game.world.height - 150, 'pelado');
+    console.log(player)
+
+    //agregamos la fisica
+    game.physics.arcade.enable(player);
+
+    player.body.bounce.y = 0;
+    player.body.gravity.y = 0;
+    player.body.collideWorldBounds = true;
+
+    
 
     //  Nuestras animaciones caminando a la derecha y a la izquierda.
     player.animations.add('left', [8, 9, 10, 12, 13, 14, 15], 8, true);
