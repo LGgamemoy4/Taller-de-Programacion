@@ -29,7 +29,7 @@ var cursors;
 function create() {
 
     //  Usamos physics para la física del juego
-    game.physics.startSystem(Phaser.Physics.ARCADE);
+    game.physics.startSystem(Phaser.Physics.P2JS);
 
     //  El fondo de pantalla
     game.add.sprite(0, 0, 'fondo');
@@ -39,12 +39,10 @@ function create() {
     console.log(player)
 
     //agregamos la fisica
-    game.physics.arcade.enable(player);
+    game.physics.p2.enable(player);
 
-    player.body.bounce.y = 0;
-    player.body.gravity.y = 0;
-    player.body.collideWorldBounds = true;
-
+    player.body.setZeroDamping();
+    player.body.fixedRotation = true;
     
 
     //  Nuestras animaciones caminando a la derecha y a la izquierda.
@@ -61,26 +59,33 @@ function create() {
 function update() {
 
     //  Setear la velocidad del personaje
-    player.body.velocity.x = 0;
+    player.body.setZeroVelocity();
 
     if (cursors.left.isDown)
     {
         //  Moverse a la izquierda
-        player.body.velocity.x = -150;
+        player.body.velocity.x = -80;
 
         player.animations.play('left');
     }
     else if (cursors.right.isDown)
     {
         //  Moverse a la derecha
-        player.body.velocity.x = 150;
+        player.body.velocity.x = 80;
 
         player.animations.play('right');
     }
     else if (cursors.up.isDown){
+        //mover para arriba
         player.animations.play('up');
 
-        player.body.velocity.y = 40;
+        player.body.velocity.y = -80;
+    }
+    else if (cursors.down.isDown){
+        //mover para abajo
+        player.animations.play('down');
+
+        player.body.velocity.y = 80;
     }
     else
     {
